@@ -22,6 +22,24 @@ const productExceptSelf = function (nums) {
   return result;
 };
 
+const productExceptSelfRefactor = function (nums) {
+  const n = nums.length;
+  const result = [];
+  result[0] = 1;
+  for (let i = 1; i < n; i += 1) {
+    result[i] = result[i - 1] * nums[i - 1];
+  }
+
+  let rightProduct = 1;
+  for (let i = n - 1; i >= 0; i -= 1) {
+    result[i] *= rightProduct;
+    rightProduct *= nums[i];
+    console.log(rightProduct, result);
+  }
+
+  return result;
+};
+
 const nums = [1, 2, 3, 4];
 // const nums = [-1, 1, 0, -3, 3];
-console.log(productExceptSelf(nums));
+console.log(productExceptSelfRefactor(nums));
