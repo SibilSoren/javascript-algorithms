@@ -24,6 +24,7 @@ const maxSubArrayOptimal = function (nums) {
   return maxSum;
 };
 
+let map = new Map();
 // Simpler mental model
 // const maxSubArray = function(nums) {
 //     let currentSum = 0;
